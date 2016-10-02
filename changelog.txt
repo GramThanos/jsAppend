@@ -1,0 +1,41 @@
+/*
+ * jsAppend
+ * Authors:
+ *     Grammatopoulos Athanasios - Vasileios
+ *     Grammatopoulos Apostolos
+ * License : The MIT License (MIT)
+ */
+
+
+
+• [0.4.3 Beta] - 2016-10-02 14:07
+	• Fixed
+		- Get by class name now supports multiple classnames in one element
+	• Added
+		- Added collection.each(callback)
+		- jsAppendElement[0] returns the vanila element
+
+
+
+• [0.4.2 Beta] - 2016-09-25 10:22
+	• Fixed
+		- Fade functions tweaks
+
+
+
+• [0.4.1 Beta] - 2016-09-20 07:46
+	• Added
+		- Added element.addText("xxx")
+		- Added element.prepend(new_element)
+		- Added new_element.prependTo(element)
+	• Fixed
+		- Element fade stops other element's fade
+		- Element fadeIn / fadeOut now returns element
+		- Element fade callback has element on `this`
+		- Element append / addChild for loop fix (was `for key in array` which was invalid)
+
+
+
+• [0.4.0 Beta] - 2016-05-31 16:59
+	• Fixed
+		- Main library build

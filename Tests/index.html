@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Page</title>
+		<style type="text/css">
+			*{
+				padding: 0px;
+				margin: 0px;
+			}
+			body{
+				font-family: "Courier New", Courier, monospace;
+				margin: 20px;
+			}
+			.test{
+				margin-bottom: 20px;
+			}
+		</style>
+		<script type="text/javascript" src="../Versions/jsappend-0.4.3.201610021407.js"></script>
+	</head>
+	<body>
+
+		<!-- Test Subjects -->
+		<div style="display: none;">
+			<div id="i-have-an-id">
+				I have an id.
+			</div>
+			<div class="i-have-a-class-name">
+				I have a class name.
+			</div>
+			<div class="i-have-a-class-name">
+				I have the same class name.
+			</div>
+			<div class="i-have-a-class-name and-a-second-one">
+				I have 2 classes in my class name.
+			</div>
+		</div>
+
+		<!-- Test 1 -->
+		<div class="test">
+			// Test 1 : Get by id <br>
+			&gt; jsAppend("#i-have-an-id")[0] === document.getElementById("i-have-an-id") <br>
+			<span id="test_1">Testing</span>
+
+			<script type="text/javascript">
+				try{
+					var result = jsAppend("#i-have-an-id").element === document.getElementById("i-have-an-id");
+					document.getElementById("test_1").textContent = (result ? "true" : "false");
+				}catch(e){
+					document.getElementById("test_1").textContent = "error";
+				}
+			</script>
+		</div>
+
+		<!-- Test 2 -->
+		<div class="test">
+			// Test 2 : Get by class name <br>
+			&gt; jsAppend(".i-have-a-class-name")[0] === document.getElementById("i-have-a-class-name")[0] <br>
+			<span id="test_2">Testing</span>
+
+			<script type="text/javascript">
+				try{
+					var result = jsAppend(".i-have-a-class-name")[0] === document.getElementsByClassName("i-have-a-class-name")[0];
+					document.getElementById("test_2").textContent = (result ? "true" : "false");
+				}catch(e){
+					document.getElementById("test_2").textContent = "error";
+				}
+			</script>
+		</div>
+
+		<!-- Test 3 -->
+		<div class="test">
+			// Test 3 : Get by class name with selector<br>
+			&gt; jsAppend(".i-have-a-class-name[1]").element === document.getElementById("i-have-a-class-name")[1] <br>
+			<span id="test_3">Testing</span>
+
+			<script type="text/javascript">
+				try{
+					var result = jsAppend(".i-have-a-class-name[1]").element === document.getElementsByClassName("i-have-a-class-name")[1];
+					document.getElementById("test_3").textContent = (result ? "true" : "false");
+				}catch(e){
+					document.getElementById("test_3").textContent = "error";
+				}
+			</script>
+		</div>
+
+		<!-- Test 4 -->
+		<div class="test">
+			// Test 4 : Get by class name with 2 classes<br>
+			&gt; jsAppend(".i-have-a-class-name.and-a-second-one[0]").element === document.getElementsByClassName("i-have-a-class-name and-a-second-one")[0] <br>
+			<span id="test_4">Testing</span>
+
+			<script type="text/javascript">
+				try{
+					var result = jsAppend(".i-have-a-class-name.and-a-second-one[0]").element === document.getElementsByClassName("i-have-a-class-name and-a-second-one")[0];
+					document.getElementById("test_4").textContent = (result ? "true" : "false");
+				}catch(e){
+					document.getElementById("test_4").textContent = "error";
+				}
+			</script>
+		</div>
+
+	</body>
+</html>
