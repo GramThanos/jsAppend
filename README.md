@@ -59,7 +59,7 @@ If any of these variables is not availiable, jsAppend will not override them. So
 As you may already understund, the jsAppend syndax looks something like this :
 
 ```javascript
-jA(selector).action();
+jsAppend(selector).action();
 ```
 
 We have 3 main selector types :
@@ -78,7 +78,7 @@ Lets select an element by it's id.
 
 <script>
 	// Get div by it's id
-	var myDiv = jA("#myDiv"); // jsAppend Element
+	var myDiv = jsAppend("#myDiv"); // jsAppend Element
 	myDiv.element; // Html Element
 </script> 
 ```
@@ -94,9 +94,9 @@ Lets select an element by it's class name.
 
 <script>
 	// Get the first div with this class name
-	var aDiv = jA(".divGroup[0]"); // jsAppend Element
+	var aDiv = jsAppend(".divGroup[0]"); // jsAppend Element
 	// Get all of them
-	var listOfDiv = jA(".divGroup"); // List of Html Element
+	var listOfDiv = jsAppend(".divGroup"); // List of Html Element
 
 	aDiv.element == listOfDiv[0]; // Returns true
 </script> 
@@ -113,7 +113,7 @@ Lets create an element by tag name.
 
 <script>
 	// Create a link
-	var newA = jA("*a"); // jsAppend Element
+	var newA = jsAppend("*a"); // jsAppend Element
 	// Add a text and a url on the link
 	newA.text("click me").href("http://some.url/");
 	// Insert it inside the div
@@ -129,12 +129,12 @@ When you set up an element, most of it's jsAppend's methods returns back the ele
 
 #### Fast create an element
 
-We can create the node using `jA("*tag")` and then append all the attribute methods.
+We can create the node using `jsAppend("*tag")` and then append all the attribute methods.
 
 So, this code :
 
 ```javascript
-jA("*a").href("http://some.url/").attr("target","_blank").text("link");
+jsAppend("*a").href("http://some.url/").attr("target","_blank").text("link");
 ```
 
 creates this element :
@@ -160,6 +160,8 @@ jA("*ul").id("myList").append([
 ]);
 ```
 
+The html equivalent element is :
+
 ```html
 <ul id="myList">
 	<li>First item</li>
@@ -170,3 +172,4 @@ jA("*ul").id("myList").append([
 	</ul>
 </ul>
 ```
+
