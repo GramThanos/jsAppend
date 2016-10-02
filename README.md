@@ -68,7 +68,7 @@ We have 3 main selector types :
 * `*tagname` the create element selector
 
 
-##### Select by id
+#### Select by id
 
 Lets select an element by it's id.
 
@@ -84,7 +84,7 @@ Lets select an element by it's id.
 ```
 
 
-##### Select by class name
+#### Select by class name
 
 Lets select an element by it's class name.
 
@@ -103,22 +103,70 @@ Lets select an element by it's class name.
 ```
 
 
-##### Create element
+#### Create element
 
 Lets create an element by tag name.
 
 ```html
-<!-- A simple div with class name -->
-<div id="aParent"></div>
+<!-- Simple parent element -->
+<div id="aParent"><!-- Insert a link here --></div>
 
 <script>
 	// Create a link
 	var newA = jA("*a"); // jsAppend Element
-	// Add a text on the link
-	newA.text("click me");
-	// Add a url link on the link
-	newA.href("http://some.url/");
+	// Add a text and a url on the link
+	newA.text("click me").href("http://some.url/");
 	// Insert it inside the div
 	newA.appendTo("#aParent");
 </script> 
+```
+
+
+### jsAppend fast elements creation
+
+When you set up an element, most of it's jsAppend's methods returns back the element. You can take this into your advantage to fast create elements.
+
+
+#### Fast create an element
+
+We can create the node using `jA("*tag")` and then append all the attribute methods.
+
+So, this code :
+
+```javascript
+jA("*a").href("http://some.url/").attr("target","_blank").text("link");
+```
+
+creates this element :
+
+```html
+<a href="http://some.url/" target="_blank">link</a>
+```
+
+#### Fast create many elements
+
+Using these fundamentals rules, we can now create multiple elements with adding parent child relations on them without using any variable.
+
+Lets create a list
+
+```javascript
+jA("*ul").id("myList").append([
+	jA("*li").text("First item"),
+	jA("*li").text("Second item"),
+	jA("*ul").id("mySubList").append([
+		jA("*li").text("First subitem"),
+		jA("*li").text("Second subitem")
+	])
+]);
+```
+
+```html
+<ul id="myList">
+	<li>First item</li>
+	<li>Second item</li>
+	<ul id="mySubList">
+		<li>First subitem</li>
+		<li>Second subitem</li>
+	</ul>
+</ul>
 ```
